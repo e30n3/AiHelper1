@@ -39,14 +39,9 @@ const Stars: React.FC = () => {
 function App() {
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [buttonText, setButtonText] = useState('Copy to cursor');
-  const [frameCode, setFrameCode] = useState('');
 
   const onCopyToCursor = () => {
     parent.postMessage({ pluginMessage: { type: 'copy-to-clipboard' } }, '*');
-  };
-
-  const onPasteToFigma = () => {
-    parent.postMessage({ pluginMessage: { type: 'paste-to-figma', code: frameCode } }, '*');
   };
 
   const copyToClipboard = (text: string) => {
@@ -94,17 +89,6 @@ function App() {
             <button className="copy-button" onClick={onCopyToCursor}>
               {buttonText}
             </button>
-            {/* New Paste Section */}
-            <button className="copy-button" onClick={onPasteToFigma} style={{ marginTop: '10px' }}>
-              Paste to figma
-            </button>
-            <textarea
-              style={{ marginTop: '10px', width: '100%' }}
-              rows={6}
-              placeholder="Paste frame code here..."
-              value={frameCode}
-              onChange={(e) => setFrameCode(e.target.value)}
-            />
           </div>
         ) : (
           <div className="frame-preview">
