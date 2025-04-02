@@ -1,40 +1,54 @@
-Below are the steps to get your plugin running. You can also find instructions at:
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+<img width="1482" alt="Figma Cursor" src="https://github.com/user-attachments/assets/795d12b2-ada4-4df2-970d-7c977d603fa3">
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+You can access the plugin directly from the Figma community - [Link to plugin](https://www.figma.com/community/plugin/1434599500152464568/figma-to-cursor)
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+# Figma To Cursor Plugin
 
-  https://nodejs.org/en/download/
+This plugin allows you to copy all the properties of any group or frame and its child layers in Figma, enabling easy recreation in code using Cursor.
 
-Next, install TypeScript using the command:
+## Installation
 
-  npm install -g typescript
+1. Download this project.
+2. Open Figma and navigate to `Plugins` -> `Development` -> `Import plugin from manifest...`
+3. Choose the `manifest.json` file from this project directory.
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+## Usage
 
-  npm install --save-dev @figma/plugin-typings
+1. Select a frame or group in Figma (ensure it's not a component; detach if necessary).
+2. Run the plugin and click "Copy to Clipboard".
+3. In Cursor, use the "design this" command and specify the desired positioning.
+4. Paste the copied properties.
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+## Development
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+- Run `yarn` to install dependencies.
+- Run `yarn build:watch` to start webpack in watch mode.
 
-For more information, visit https://www.typescriptlang.org/
+## Build Commands
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+### For Development
 
-We recommend writing TypeScript code using Visual Studio code:
+- `yarn build:watch`: Starts webpack in watch mode for development.
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
+### For Production
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+- `yarn build`: Builds the plugin for production.
+
+## Tooling
+
+This project uses:
+
+- React + Webpack
+- TypeScript
+- Prettier precommit hook
+
+## Quickstart for Developers
+
+- Run `yarn` to install dependencies.
+- Run `yarn build:watch` to start webpack in watch mode.
+- Open `Figma` -> `Plugins` -> `Development` -> `Import plugin from manifest...` and choose `manifest.json` file from this repo.
+
+⭐ To change the UI of your plugin (the react code), start editing [App.tsx](./src/app/components/App.tsx).  
+⭐ To interact with the Figma API edit [controller.ts](./src/plugin/controller.ts).  
+⭐ Read more on the [Figma API Overview](https://www.figma.com/plugin-docs/api/api-overview/).

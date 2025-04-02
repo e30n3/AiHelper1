@@ -1,18 +1,10 @@
 {
-  "name": "AiHelper",
-  "id": "1489268469556514260",
-  "api": "1.0.0",
-  "main": "code.js",
-  "capabilities": [],
-  "enableProposedApi": false,
+  "name": "Figma to Cursor",
+  "id": "1434599500152464568",
+  "networkAccess": { "allowedDomains": ["https://designwithprompts.com"] },
   "documentAccess": "dynamic-page",
-  "editorType": [
-    "figma"
-  ],
-  "ui": "ui.html",
-  "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
-  }
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma", "figjam"]
 }
